@@ -1,0 +1,1051 @@
+# gnuplot script file for penEasy
+# Last update:
+#   2008-06-01 by JS
+
+# Pause interval (-1 stops execution):
+frameRate = -1
+
+pause -1 "Intended for 3D distributions in Cartesian coordinates."
+
+# Factor from eV to keV:
+f = 1.0e-3
+
+set style line 1 linetype -1 linewidth 1 pointtype 7 pointsize 0.5
+set pm3d hidden3d 1 implicit
+set colorbox horiz user origin 0.6,0.05 size 0.3,0.04
+unset surface
+set contour
+# In case you want a gray scale plot:
+# set palette gray negative
+
+set title "3D Dose Distribution (keV/g per history)"
+set xlabel "x (cm)"
+set ylabel "y (cm)"
+set zlabel "dose"
+
+splot "tallySpatialDoseDistrib.dat" index 000 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 001. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 001 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 002. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 002 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 003. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 003 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 004. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 004 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 005. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 005 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 006. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 006 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 007. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 007 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 008. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 008 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 009. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 009 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 010. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 010 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 011. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 011 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 012. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 012 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 013. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 013 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 014. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 014 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 015. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 015 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 016. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 016 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 017. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 017 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 018. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 018 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 019. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 019 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 020. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 020 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 021. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 021 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 022. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 022 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 023. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 023 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 024. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 024 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 025. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 025 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 026. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 026 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 027. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 027 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 028. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 028 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 029. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 029 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 030. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 030 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 031. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 031 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 032. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 032 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 033. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 033 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 034. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 034 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 035. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 035 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 036. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 036 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 037. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 037 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 038. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 038 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 039. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 039 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 040. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 040 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 041. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 041 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 042. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 042 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 043. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 043 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 044. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 044 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 045. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 045 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 046. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 046 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 047. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 047 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 048. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 048 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 049. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 049 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 050. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 050 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 051. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 051 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 052. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 052 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 053. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 053 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 054. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 054 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 055. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 055 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 056. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 056 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 057. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 057 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 058. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 058 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 059. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 059 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 060. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 060 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 061. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 061 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 062. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 062 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 063. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 063 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 064. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 064 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 065. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 065 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 066. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 066 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 067. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 067 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 068. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 068 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 069. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 069 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 070. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 070 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 071. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 071 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 072. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 072 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 073. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 073 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 074. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 074 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 075. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 075 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 076. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 076 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 077. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 077 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 078. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 078 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 079. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 079 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 080. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 080 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 081. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 081 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 082. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 082 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 083. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 083 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 084. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 084 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 085. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 085 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 086. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 086 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 087. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 087 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 088. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 088 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 089. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 089 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 090. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 090 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 091. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 091 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 092. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 092 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 093. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 093 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 094. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 094 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 095. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 095 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 096. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 096 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 097. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 097 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 098. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 098 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 099. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 099 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 100. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 100 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 101. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 101 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 102. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 102 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 103. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 103 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 104. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 104 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 105. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 105 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 106. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 106 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 107. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 107 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 108. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 108 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 109. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 109 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 110. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 110 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 111. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 111 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 112. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 112 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 113. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 113 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 114. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 114 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 115. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 115 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 116. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 116 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 117. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 117 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 118. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 118 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 119. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 119 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 120. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 120 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 121. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 121 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 122. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 122 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 123. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 123 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 124. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 124 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 125. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 125 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 126. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 126 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 127. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 127 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 128. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 128 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 129. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 129 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 130. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 130 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 131. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 131 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 132. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 132 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 133. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 133 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 134. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 134 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 135. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 135 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 136. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 136 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 137. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 137 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 138. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 138 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 139. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 139 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 140. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 140 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 141. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 141 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 142. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 142 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 143. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 143 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 144. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 144 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 145. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 145 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 146. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 146 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 147. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 147 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 148. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 148 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 149. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 149 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 150. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 150 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 151. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 151 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 152. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 152 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 153. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 153 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 154. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 154 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 155. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 155 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 156. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 156 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 157. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 157 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 158. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 158 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 159. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 159 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 160. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 160 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 161. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 161 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 162. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 162 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 163. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 163 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 164. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 164 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 165. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 165 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 166. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 166 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 167. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 167 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 168. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 168 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 169. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 169 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 170. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 170 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 171. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 171 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 172. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 172 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 173. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 173 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 174. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 174 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 175. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 175 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 176. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 176 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 177. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 177 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 178. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 178 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 179. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 179 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 180. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 180 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 181. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 181 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 182. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 182 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 183. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 183 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 184. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 184 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 185. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 185 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 186. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 186 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 187. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 187 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 188. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 188 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 189. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 189 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 190. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 190 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 191. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 191 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 192. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 192 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 193. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 193 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 194. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 194 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 195. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 195 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 196. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 196 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 197. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 197 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 198. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 198 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 199. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 199 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 200. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 200 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 201. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 201 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 202. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 202 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 203. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 203 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 204. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 204 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 205. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 205 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 206. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 206 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 207. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 207 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 208. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 208 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 209. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 209 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 210. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 210 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 211. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 211 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 212. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 212 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 213. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 213 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 214. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 214 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 215. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 215 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 216. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 216 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 217. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 217 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 218. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 218 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 219. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 219 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 220. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 220 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 221. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 221 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 222. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 222 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 223. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 223 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 224. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 224 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 225. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 225 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 226. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 226 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 227. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 227 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 228. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 228 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 229. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 229 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 230. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 230 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 231. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 231 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 232. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 232 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 233. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 233 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 234. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 234 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 235. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 235 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 236. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 236 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 237. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 237 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 238. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 238 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 239. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 239 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 240. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 240 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 241. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 241 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 242. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 242 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 243. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 243 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 244. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 244 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 245. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 245 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 246. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 246 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 247. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 247 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 248. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 248 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 249. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 249 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 250. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 250 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 251. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 251 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 252. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 252 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 253. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 253 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 254. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 254 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 255. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 255 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 256. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 256 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 257. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 257 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 258. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 258 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 259. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 259 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 260. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 260 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 261. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 261 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 262. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 262 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 263. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 263 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 264. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 264 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 265. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 265 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 266. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 266 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 267. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 267 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 268. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 268 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 269. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 269 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 270. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 270 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 271. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 271 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 272. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 272 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 273. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 273 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 274. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 274 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 275. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 275 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 276. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 276 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 277. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 277 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 278. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 278 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 279. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 279 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 280. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 280 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 281. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 281 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 282. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 282 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 283. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 283 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 284. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 284 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 285. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 285 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 286. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 286 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 287. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 287 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 288. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 288 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 289. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 289 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 290. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 290 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 291. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 291 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 292. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 292 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 293. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 293 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 294. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 294 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 295. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 295 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 296. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 296 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 297. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 297 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 298. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 298 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 299. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 299 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 300. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 300 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 301. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 301 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 302. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 302 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 303. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 303 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 304. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 304 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 305. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 305 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 306. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 306 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 307. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 307 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 308. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 308 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 309. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 309 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 310. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 310 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 311. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 311 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 312. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 312 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 313. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 313 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 314. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 314 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 315. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 315 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 316. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 316 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 317. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 317 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 318. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 318 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 319. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 319 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 320. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 320 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 321. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 321 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 322. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 322 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 323. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 323 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 324. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 324 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 325. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 325 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 326. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 326 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 327. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 327 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 328. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 328 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 329. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 329 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 330. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 330 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 331. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 331 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 332. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 332 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 333. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 333 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 334. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 334 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 335. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 335 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 336. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 336 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 337. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 337 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 338. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 338 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 339. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 339 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 340. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 340 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 341. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 341 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 342. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 342 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 343. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 343 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 344. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 344 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 345. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 345 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 346. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 346 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 347. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 347 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 348. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 348 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 349. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 349 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 350. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 350 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 351. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 351 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 352. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 352 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 353. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 353 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 354. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 354 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 355. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 355 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 356. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 356 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 357. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 357 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 358. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 358 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 359. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 359 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 360. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 360 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 361. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 361 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 362. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 362 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 363. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 363 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 364. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 364 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 365. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 365 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 366. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 366 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 367. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 367 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 368. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 368 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 369. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 369 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 370. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 370 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 371. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 371 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 372. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 372 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 373. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 373 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 374. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 374 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 375. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 375 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 376. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 376 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 377. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 377 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 378. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 378 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 379. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 379 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 380. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 380 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 381. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 381 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 382. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 382 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 383. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 383 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 384. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 384 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 385. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 385 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 386. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 386 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 387. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 387 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 388. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 388 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 389. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 389 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 390. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 390 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 391. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 391 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 392. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 392 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 393. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 393 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 394. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 394 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 395. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 395 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 396. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 396 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 397. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 397 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 398. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 398 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 399. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 399 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 400. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 400 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 401. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 401 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 402. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 402 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 403. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 403 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 404. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 404 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 405. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 405 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 406. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 406 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 407. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 407 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 408. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 408 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 409. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 409 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 410. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 410 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 411. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 411 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 412. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 412 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 413. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 413 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 414. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 414 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 415. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 415 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 416. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 416 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 417. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 417 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 418. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 418 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 419. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 419 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 420. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 420 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 421. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 421 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 422. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 422 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 423. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 423 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 424. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 424 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 425. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 425 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 426. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 426 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 427. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 427 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 428. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 428 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 429. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 429 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 430. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 430 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 431. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 431 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 432. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 432 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 433. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 433 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 434. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 434 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 435. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 435 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 436. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 436 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 437. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 437 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 438. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 438 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 439. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 439 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 440. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 440 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 441. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 441 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 442. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 442 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 443. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 443 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 444. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 444 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 445. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 445 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 446. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 446 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 447. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 447 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 448. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 448 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 449. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 449 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 450. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 450 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 451. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 451 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 452. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 452 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 453. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 453 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 454. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 454 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 455. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 455 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 456. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 456 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 457. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 457 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 458. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 458 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 459. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 459 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 460. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 460 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 461. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 461 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 462. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 462 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 463. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 463 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 464. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 464 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 465. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 465 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 466. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 466 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 467. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 467 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 468. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 468 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 469. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 469 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 470. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 470 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 471. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 471 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 472. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 472 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 473. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 473 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 474. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 474 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 475. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 475 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 476. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 476 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 477. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 477 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 478. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 478 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 479. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 479 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 480. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 480 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 481. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 481 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 482. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 482 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 483. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 483 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 484. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 484 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 485. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 485 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 486. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 486 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 487. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 487 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 488. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 488 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 489. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 489 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 490. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 490 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 491. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 491 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 492. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 492 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 493. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 493 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 494. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 494 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 495. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 495 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 496. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 496 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 497. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 497 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 498. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 498 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 499. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 499 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 500. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 500 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 501. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 501 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 502. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 502 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 503. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 503 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 504. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 504 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 505. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 505 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 506. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 506 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 507. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 507 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 508. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 508 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 509. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 509 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 510. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 510 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 511. Press OK"
+splot "tallySpatialDoseDistrib.dat" index 511 using 2:5:($10*f) notitle with lines
+pause frameRate "z-slice index = 512. Press OK"
+
+# EOF

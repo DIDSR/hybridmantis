@@ -1,0 +1,86 @@
+SOURCE PHASE SPACE FILE
+
+* In this source model, initial particle states are read from an external
+  phase space file (PSF). The data in each record is read as follows:
+  read(unit,*) kpar,e,x,y,z,u,v,w,wght,dn,ilb(1),ilb(2),ilb(3),ilb(4),ilb(5)
+  This line shows the actual variable order.
+
+  The meaning of each variable is explained in the PENELOPE manual, except
+  DN, which is the increment in the number of top primary histories since
+  the previous record in the PSF was written. Thus DN=0 indicates that the
+  current particle belongs to the same history as the previous one and DN=
+  3, for instance, implies that it was necessary to simulate 3 additional
+  primary histories until a particle reached again the PSF scoring region.
+
+* PSF with formats previous to the one used in the 2008-05-15 version
+  (referred to as pre-2008) are abandoned in favor of the new one, which
+  includes all the ILB variables. The PSF source is capable of identifying
+  whether the 2008 or pre-2008 formats are used, and act accordingly. In
+  either case, the first line of the PSF must contain the appropriate
+  header, as produced by the corresponding version of the PSF tally.
+
+* The standard penEasy PSF format is in text mode (i.e. ASCII). Each
+  variable must be separated from the next by one or more spaces. Given
+  that for some applications the time needed to access the information in
+  the PSF record may not be negligible, this format is obviously not
+  optimized for speed. It was chosen because it is human-readable and
+  directly amenable to graphical representation, e.g. with gnuplot.
+  However, for production runs, a binary format ("unformatted", in the
+  Fortran jargon) is more convenient.
+
+* To use PSFs in binary format users have two alternatives: (i) to modify
+  the Fortran code of the PSF source and PSF tally routines to read/write
+  data in binary; or (ii) to use a set of ready-made routines included in
+  the package that generate PSFs in binary format. These routines are in
+  fact an interface to a library of C++ routines created by the
+  International Atomic Energy Agency (IAEA) in the framework of a project
+  to set up a public database of PSFs. A description of this project and
+  public access to the database are provided at http://www-nds.iaea.org/phsp.
+  At any rate, the practical use of these routines in penEasy is not
+  without some work from the users' side, since it is required that the C++
+  library be compiled with the Fortran code of penEasy. Detailed
+  instruction on how to do this are given in ??.
+
+* Each particle in the PSF will be split SPLITTING FACTOR times and its
+  statistical weight reduced accordingly. This is used as a variance
+  reduction technique. It is important to bear in mind that the replicas of
+  the original particle are stored in the secondary particle stack.
+  Therefore, a very large SPLITTING FACTOR may lead to a stack overflow. A
+  way out of this is to increase the stack by editing the PENELOPE source
+  files and changing the parameter NMS. Notice that this parameter may
+  appear in more than one file.
+
+* After being read from the PSF, each particle position vector and
+  direction of flight is rotated according to the EULER ANGLES
+  omega,theta,phi (in deg) as defined in the PENELOPE manual. First, a
+  rotation Rz(omega) is performed where the subscript 'z' indicates that it
+  is a right-handed rotation around the z axis. Second, a rotation
+  Ry(theta) is carried out and finally a Rz(phi), again around the original
+  z axis. Notice that the rotation axis are the *original* (as opposite to
+  the rotated) axis of coordinates.
+
+* The CARTESIAN COMPONENTS OF POSITION SHIFT refers to the translation
+  applied to the position of each particle after its cartesian coordinates
+  are rotated.
+
+* The maximum energy reported after pre-validating the PSF corresponds to
+  the particle's kinetic energy. However, if at least one e+ is present,
+  this quantity is incremented by 2*mc^2 (~1022 keV) to account for the
+  possibility of in-flight positron annihilation with the subsequent
+  emission of two photons, one of which may reach the reported energy. When
+  pre-validation is not requested, the user is responsible for providing a
+  maximum energy that includes an additional energy of 2*mc^2 if there is
+  at least one e+ present. Failure to do so may cause the program to crash
+  due to the inappropriate setting of the maximum energy in PENELOPE's
+  lookup tables. Note that the pre-validation process may take an
+  appreciable amount of time.
+
+* Note that this source routine modifies the current history number N to
+  adapt it to the actual number in the parent simulation that created the
+  PSF. To do this, the DN variable discussed above is employed. For
+  instance, if DN=3 then N will be increased by (3-1)=2 units. One unit is
+  subtracted from DN to account for he fact that N is already increased by
+  one by the main program.
+
+
+>>> END OF FILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

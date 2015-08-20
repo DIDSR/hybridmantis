@@ -1,0 +1,138 @@
+SOURCE BOX ISOTROPIC GAUSS SPECTRUM
+
+This source model has a considerable flexibility, allowing the definition
+of a wide variety of source shapes and spectra. The notes below describe
+the various options in detail.
+
+
+**** ENERGY ****
+
+* An energy spectrum is given, below the corresponding header, as a
+  piecewise function. Each entry in the spectrum contains two numbers,
+  namely, the starting energy of a channel and its probability, which needs
+  not be normalized to unity. The list ends whenever a negative probability
+  is found. The particle energy is sampled with uniform probability inside
+  a randomly selected channel.
+
+  For example, the two most prominent Co-60 lines can be defined as follows:
+
+  Energy(eV) Probability (Probabilities do not need to be normalized to 1)
+  1.17e6     99.97       1st channel: [1.17,1.17] MeV with prob~99.97
+  1.17e6      0.0        2nd channel: [1.17,1.33] MeV, no emissions
+  1.33e6     99.99       3rd channel: [1.33,1.33] MeV with prob~99.99
+  1.33e6     -1          A negative value signals the end of the spectrum
+
+  A continuous spectrum would look like this:
+
+  Energy(eV) Probability (Probabilities do not need to be normalized to 1)
+  0.5e6        2.1       1st channel: [0.5,0.6] MeV with prob~2.1
+  0.6e6        3.7       2nd channel: [0.6,0.7] MeV with prob~3.7
+  0.7e6        5.2       3rd channel: [0.7,0.8] MeV with prob~5.2
+  0.8e6        7.0       etc...
+  0.9e6        4.9       Last channel is [0.9,1.0] MeV
+  1.0e6       -1         A negative value signals the end of the spectrum
+
+  Note that a combination of continuous and discrete spectra is possible by
+  mixing channels of finite and null width.
+
+* If there is only a single channel (i.e. two entries in the list) and its
+  probability is null, the source is then assumed to have a Gaussian
+  spectrum truncated at +-6*sigma (or zero). If E(1) and E(2) stand for the
+  two energies entered, the mean energy is set to (E(1)+E(2))/2 and the
+  full width at half maximum (FWHM) to E(2)-E(1). Recall that
+  FWHM = sigma*sqrt(8*ln(2)) = 2.35482*sigma.
+
+  For instance, the table:
+
+  Energy(eV) Probability
+  0.9e6        0.0        A single channel with null probability
+  1.1e6        -1
+
+  defines a Gaussian distribution with mean = (0.9+1.1)/2 = 1.0 MeV and
+  FWHM =  1.1-0.9 = 0.2 MeV (i.e. sigma = 84.932 keV).
+
+
+**** DIRECTION OF EMISSION ****
+
+* The emission is isotropic within a cone. The cone axis lies along the
+  (unnormalized) given DIRECTION VECTOR and has a certain APERTURE, given
+  as the maximum angle (in degrees from 0 up to 180) between the direction
+  of flight of an emitted particle and the axis of symmetry of the cone.
+  APERTURE=0 is forward emission (null solid angle) and APERTURE=180
+  implies fully isotropic emission (solid angle is 4*PI).
+
+
+**** SPATIAL POSITION ****
+
+* Particles are generated inside a rectangular box that will be referred to
+  as the source box. Its size is given by specifying, in cm, its three
+  SIDES (i.e. along the x, y and z directions).
+
+* The source box can be rotated to better suit the geometry of the source
+  being defined. To this end, three EULER ANGLES are given in deg. The
+  first angle involves a rotation around the z axis; the second, a rotation
+  around the original y axis; and the third, a rotation again around the
+  original z axis.
+
+* After rotating the position vector, it is shifted so that the source box
+  is centered at the position specified as the CENTER COORDINATES.
+
+* It is also possible to specify in what MATERIAL of the quadric geometry
+  to be simulated should the particles be generated. This is done as
+  follows.
+
+  Initial particle positions are sampled inside the source box. If
+  MATERIAL>0 the particle is accepted only if the index of the material
+  where it lies coincides with MATERIAL (however, see below the particular
+  case of a point source). Otherwise it is rejected and re-sampled. This
+  case is intended to define radioactive sources, in which primary
+  particles are emitted inside objects with complex shapes. Of course, a
+  source box large enough to contain the desired material object must be
+  provided.
+
+  If, on the other hand, MATERIAL=0 the particle position is accepted
+  regardless of the material in which it is located. If its position lies
+  initially in vacuum, it is moved forward until either it enters the
+  simulated object or escapes to infinity. In this latter case the returned
+  material index is zero and the main program must provide safeguards to
+  detect this. This model is intended to describe simple radiation fields,
+  such as pencil or conical beams. Note that in the penEasy main program
+  particles emitted but not aiming at the object are effectively counted as
+  simulated histories, a fact that must be taken into account when
+  interpreting simulation results, which are always expressed on a per-
+  history basis.
+
+* The procedure described above applies also for voxelized geometries.
+  Notice that, if a material is selected by setting MATERIAL>0, the source
+  has a constant emission intensity per unit volume. For quadric
+  geometries, and since bodies of the same material are homogeneous, this
+  also implies that the source has a constant emission intensity per unit
+  mass. When voxelized geometries are used, however, different voxels may
+  contain the same material but with varying mass densities. In this latter
+  case, therefore, voxels (and quadric bodies) inside the source box and
+  made of the selected material emit a uniform number of particles per unit
+  volume, but not necessarily per unit mass.
+
+* In the particular case of a point source (i.e. when the source box has
+  sides of null length), the meaning of MATERIAL>0 is different. In this
+  case a particle's direction is accepted if the position falls inside that
+  material or if it *points* at it. This case is conceived to describe
+  beams that produce radiation fields of complex shapes. An example can be
+  a gamma point source immersed in air with a surrounding shield (not
+  included in the simulation) intended to produce a rectangular field on a
+  certain distant plane.
+
+  In this example the user should include in the geometry file a thin
+  rectangular body of the desired field dimensions and in contact with the
+  distant plane. This body should be made of a material that does not
+  appear anywhere else, say mat=3. By setting MATERIAL to 3 in the input
+  file, only particles aimed at the rectangular field will be accepted.
+  Care must be exercised when setting the DIRECTION and APERTURE to make
+  sure that the defined cone completely "illuminates" the body intended to
+  define the field. Notice that to decide whether or not the particle
+  points at MATERIAL the presence of other intermediate materials, such as
+  the air in the former example, is ignored.
+
+
+>>>> END OF FILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+

@@ -1,0 +1,264 @@
+List of changes in penEasy with respect to previous versions.
+See README.txt for more information.
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+v. 2008-06-15
+
+* The gnuplot scripts for the VDD tally assume that no coordinates are
+  present in the DAT file. This is to save disk space, since usually
+  voxelized geometries contain millions of voxels and storing the cartesian
+  coordinates for each and every one of them is redundant.
+
+* Gnuplot scripts containing sequences of images have been modified to
+  include 'frameRate' as the pause interval. By default it is -1, except
+  for the VDD tally, where it is set to a positive value to produce a
+  'movie'.
+
+* The penVox algorithm has been modified to allow: (i) vacuum cavities; and
+  (ii) a transparent material (or equivalently, body) that does not need to
+  be smaller than the voxels bounding box (VBB). The tolerances of the
+  algorithm have also been modified to take into account (ii).
+
+* A routine that writes a separate file with the voxels mass and sign has
+  been added. This can be used in future versions of the code to allow
+  initialization of voxels mass from this file. Given that, for large
+  granularities, the computation of the voxels mass may take a sizeable
+  amount of time (~1 min for granul=100), this possibility can save time
+  when simulating the same geometry several times.
+
+* A switch has been added to allow users to specify whether they want the
+  voxels mass (and dose) to be computed including the contribution of
+  quadric materials in overlapped voxels or not (sort of a partial volume
+  effect).
+
+* The VDD tally, when asked to report voxels mass, also reports the voxels
+  sign.
+
+* The arrays DENSVOX and IDENSVOX in the penVox common have been changed to
+  single precision to save computer memory.
+
+* A set of routines to allow the creation of PSFs in IAEA binary format
+  have been included. Only the PENELOPE label ILB(5) is considered when
+  writing (or reading) PSFs in this format--ILB(1:4) are ignored.
+
+* For standard penEasy (ASCII) phase-space files (PSF), the contents has
+  changed. The 2006-compliant data format, consisting of
+    KPAR : E : X : Y : Z : U : V : W : WGHT : ILB(5) : DeltaN
+  has been substituted by
+    KPAR : E : X : Y : Z : U : V : W : WGHT : DeltaN : ILB(1:5)
+  which includes ILB values from 1 to 5. The PSF source is capable of
+  identifying whether the 2008 or pre-2008 formats are used, and act
+  accordingly. In either case, the first line of the PSF must contain the
+  appropriate header, as produced by the corresponding version of the PSF
+  tally.
+
+* The codes in command.in have been redefined. Now it is also possible to
+  introduce multiple commands in a single update cycle.
+
+* In the input section of TallyParticleTrackStructure, the field defining
+  every how many histories a track must be reported has been removed. It
+  was superfluous.
+
+* BUG FIXED in tallyVoxelDoseDistrib.f. VDD counters were not correctly
+  initialized to zero. The fact that tests were passed is perhaps caused by
+  the compiler setting to zero all arrays at init time.
+
+* BUG FIXED in penvox.f. Array RHO, containing the mass density of each
+  material present in the simulation, was invoked by INIVOX() before PEINIT
+  was called. Since PEINIT sets RHO, the latter was undefined at the time
+  it was invoked, (it was probably set to zero by the compiler) and so the
+  mass of overlapped voxels was incorrectly determined. This is actually
+  irrelevant for the transport itself since the sign, which determines
+  whether or not the voxel is overlapped, was correctly set anyway. But it
+  affects the computation of the dose by the VDD tally in overlapped
+  voxels.
+
+* BUG FIXED in penaux.f. The forcing initialization routine contains a
+  single weight window, but the input file allowed the definition of one
+  for each forcing line entered. As a result, only the window defined in
+  the last line entered in the forcing section mattered. i.e., in the line
+  with MAT=0. The input file has also been fixed to make clear that only a
+  single weight window is present in the simulation.
+
+* BUG FIXED in sourcePhaseSpaceFile.txt. The following facts caused a
+  conflict: (i) Several tallies store the history number after a call to
+  TALLY(1,N); (ii) This tally call takes place *before* the call to
+  SOURCE(N); (iii) But the PSF source modifies N to adjust it to the actual
+  value read from the PSF. As a result, the value N passed by TALLY(1,N)
+  was incorrect. Note that point (ii) cannot be changed, since SOURCE calls
+  TALLY(0,E) to store the primary particles energy E and at this point some
+  tallies need to know the correct history number. The adopted solution was
+  to add another tally mode, TALLY(2,N), which is invoked by sourcePSF to
+  inform other potentially interested tallies that N has changed.
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+v. 2008-03-01
+
+* Support for voxelized geometries (possibly combined with quadrics) has
+  been included based on the penVox algorithm.
+
+* All plotting scripts have been adapted to gnuplot 4.2 patchlevel 3.
+  Basically, this involved adding 'implicit' to the 'set pm3d' instruction,
+  since in the new version the default pm3d mode has been switched to
+  explicit. As a result, 3D surfaces were not plotted--only the contours.
+  Also, pointtypes (i.e. symbol codes) for the Win terminal have changed
+  (apparently, for better consistency with the codes employed in other
+  terminals, such as postscript) with the result that what was plotted as a
+  solid dot in v 4.0 is now a hollow triangle.
+
+* Output of tally reports to stdout has been supressed. Now, only DAT files
+  contain the reported data.
+
+* Cylindrical and radial tallies incorrectly reported average radius of
+  first circular bin as being something different from zero. This has been
+  corrected and now they report zero for the 1st bin.
+
+* The introduction of some new features of Fortran 95 have rendered the
+  code incompatible with the famous g77 compiler (e.g. by the use of 'i0'
+  to write integer numbers).
+
+* Various aesthetic improvements in the tally reports have been introduced.
+
+* The documentation has been revised and extended.
+
+* The main program name was changed from penmain to penEasy.
+
+* BUG FIXED in penEasy.f. The bug caused the code to stop when only tallies
+  that do not report uncertainty were active (e.g. PSF).
+
+* BUG FIXED in sourceBoxIsotropicGaussSpectrum.f. For point sources
+  *aiming* at a specific material, the status of the particle actually
+  defined by the source was the one that was reached after hitting the
+  target material, not the one at the source position. (Pointed out by
+  Andreu Badal.)
+
+* BUG FIXED in sourceBoxIsotropicGaussSpectrum.f. The quantity 2*mc2 is now
+  added to the max E if the source is a positron.
+
+* BUG FIXED in penaux.f. If EABS>EMAX, PEINIT sets EABS to EMAX-eps,
+  thus ruining any attempt to create a perfect absorbent. To avoid this
+  behavior, EMAX is now defined to be slightly larger than the max source
+  E.
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+v. 2006-08-01
+
+* Adapted to PENELOPE'2006.
+
+* Data sections in input file have been changed to include a field that
+  specifies whether the source/tally is ON or OFF. This avoids having to
+  comment out the whole section to indicate that it is OFF and prevents
+  misinterpretations caused by missing a section because of spelling errors
+  in its header.
+
+* New tallies developed: tallyCylindricalDoseDistrib and
+  tallySphericalDoseDistrib. Their corresponding gnuplot scripts have also
+  been prepared.
+
+* Two new scripts for 3D spatial dose distributions have been included, one
+  for color maps and the other for surface plots. Some other scripts have
+  been polished.
+
+* The report header from tallySpatialDoseDistrib has been improved.
+
+* The data section for tallyParticleTrackStructure now includes a field
+  that sets a limit to the number of history tracks to report (suggested by
+  Andreu Badal).
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+v. 2006-06-01
+
+* The relative uncertainty requested is now a quantity that can be defined
+  independently in the input file for each tally. A minor change is that
+  when nothing has been scored, the tally routines return a 0% uncertainty,
+  instead of 100% as it was done before.
+
+* penaux.f
+  PEINIT is now invoked with the maximum energy provided by the active
+  source routine. Previously, PEINIT was always initialized with 1 GeV.
+  This change implies that sourcePhaseSpaceFile.f needed to be changed as
+  well to take into account that the max energy returned by its init
+  routine should add 2*mc^2 (~1.022 MeV) if there are e+'s present in the
+  PSF.
+
+* penmain.in
+  Comment lines are now allowed in the input file by introducing a '#' in
+  the first column.
+
+* BUG FIXED in penmain.f
+  In the 'particle' loop, the line
+          if (absorb()) cycle particle
+  has been inserted before
+          call start
+  This prevents START from stopping the simulation when E is out of range.
+
+* BUG FIXED in tallyParticleTrackStructure.f
+  Modified to account for particles leaving the source but not entering the
+  object. Previously, these tracks were not correctly displayed.
+
+* penmain.f
+  The comment after call JUMP was mistaken.
+
+* tallyPhaseSpaceFile.f, tallyPhaseSpaceFile.txt
+  PSFTALLY has been modified so that it does not stop particles when they
+  reach detection material. A particle may now re-enter the PSF detector
+  many times, unless the absorption energies are set to +INF for that
+  detector.
+
+* penaux.f
+  - ABSORB simplified (aesthetically).
+  - FORCING can now be = 1 (before, only >1 accepted).
+
+* penmain.in
+  Default FORCING changed to 1.0 (it was 10.0)
+
+* BUG FIXED in sourcePhaseSpaceFile.f
+  Rotation angles for PSF, which are input as deg, were not converted into
+  rad.
+
+* BUG FIXED in gnuplot scripts for tallySpatialDoseDistrib.f
+  The title should say eV/g... and not eV/cm...
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+v. 2005-10-26
+
+* Adapted to PENELOPE'2005.
+
+* The history counter N has been upgraded to REAL*8.
+
+* Support for interaction forcing (a variance reduction technique available
+  in PENELOPE) has been provided.
+
+* Time routines have been adapted to the F95 standard.
+
+* tallyParticleTrackStructure.f has been added and some gnuplot scripts
+  improved.
+
+* BUG FIXED in penmain.f
+  CALL TALLY(1,N) in PENMAIN (stores the history number for later
+  comparisons in TALLYSDD), has been moved *before* CALL SOURCE. This is
+  necessary because SOURCE calls TALLY(0,e) and the latter assumes that the
+  history number has already been stored previously. This may have caused
+  the variance of the energy deposited in the spatial bin where the source
+  was lying to be incorrectly calculated. Many thanks to Andreu Badal
+  (Univ. Politecnica de Catalunya) for pointing this out.
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+v. 2004-11-23
+
+* First "public" release.
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+v. 2003-04-21
+
+* Created. For internal use only.
+
+
+>>>> END OF FILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

@@ -1,0 +1,20 @@
+# gnuplot script file for penEasy
+#
+# Last update:
+#   2008-04-19 by JS
+
+pause -1 "Intended for cylindrical distributions integrated over z (radius vs dose)."
+
+# Factor from eV to keV:
+f = 1.0e-3
+
+set style line 1 linetype -1 linewidth 1 pointtype 7 pointsize 0.5
+
+set title "Cylindrical Dose Distribution (integrated over z)"
+set xlabel "radius (cm)"
+set ylabel "dose (keV.cm/g per history)"
+plot "tallyCylindricalDoseDistrib.dat" using 3:($4*f):($5*f) notitle with yerrorbars linestyle 1, \
+     "tallyCylindricalDoseDistrib.dat" using 2:($4*f) notitle with steps linestyle 1
+pause -1 "Press OK"
+
+# EOF

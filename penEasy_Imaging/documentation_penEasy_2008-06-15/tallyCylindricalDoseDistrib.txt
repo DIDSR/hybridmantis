@@ -1,0 +1,49 @@
+TALLY CYLINDRICAL DOSE DISTRIBUTION
+
+* The absorbed dose per simulated history is tallied in the r interval
+  [RMIN,RMAX], using NRBIN bins, where r stands for the radial distance
+  sqrt(x^2+y^2).
+  Corresponding intervals and bins are defined for the z axis. The
+  resulting volume elements allow the scoring of a cylindrical dose
+  distribution.
+
+  To facilitate the preparation of graphs with steps, two values for each
+  coordinate are printed in each row. For the z coordinate these values are
+  the low-end and the middle point of each bin. For the r coordinate they
+  are the low-end and an average radial distance r_ave. This latter
+  quantity is a weighted average with a weight proportional to r. This
+  results in r_ave = 2/3*(r'^3-r^3)/(r'^2-r^2), where r and r' are the low
+  and high-ends of the bin, respectively.
+
+* The 3D distribution can be integrated over z to obtain a 2D distribution.
+  Thus, if NZBIN is set to zero the absorbed dose is integrated along the z
+  axis, yielding a 2D distribution that depends only on r. Put in other
+  words, the scoring region along the z axis is taken to be [-infty,
+  +infty]. In this case, the units of the reported result are cm*eV/g.
+
+* In order to obtain its mass density, it is assumed that each cylindrical
+  bin contains a single material, i.e. it is homogeneous. The mass density
+  of each bin is evaluated at (x=rmid,y=0,z), where rmid is the average
+  between the low and high-end radii of the bin.
+
+* This tally should not be used to compute absorbed dose inside voxelized
+  regions. This is because, as described previously, this tally may report
+  erroneous results if bins are not homogeneous. Inhomogeneities may arise
+  because some bins may overlap with more than one voxel or with voxels and
+  quadric bodies, if both are used.
+
+* If NZBIN=0 the values ZMIN,ZMAX are irrelevant, except for the fact that
+  the middle point z=(ZMIN+ZMAX)/2 is used to evaluate the mass density of
+  the entire region z=[-infty,+infty].
+
+* If 'PRINT COORDINATES' is set to 1, the values of r,z are printed in the
+  report. Otherwise, they are not. Notice that, in order to interpret the
+  various columns in the output file, the gnuplot scripts for this tally
+  distributed with penEasy assume that this option has been set to 1.
+
+* The RELATIVE UNCERTAINTY REQUESTED (specified as a percentage) is used as
+  a criterion to decide when to stop the simulation (see Instructions in
+  penEasy.in).
+
+>>> END OF FILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+

@@ -1,0 +1,49 @@
+TALLY SPATIAL DOSE DISTRIBUTION
+
+* The absorbed dose per simulated history is tallied in the x-interval
+  [XMIN,XMAX], using NXBIN bins. Corresponding intervals and bins are
+  defined for the y and z axis. The resulting bins allow the scoring of a
+  3D spatial dose distribution.
+
+  To facilitate the preparation of graphs with steps, two values for each
+  coordinate are printed in each row, namely, the low-end and the middle
+  point of each bin.
+
+* The 3D distribution can be integrated to obtain a 2D or 1D distribution.
+  If, for example, NXBIN is set to zero, the absorbed dose is integrated
+  along the x axis, thus yielding a 2D distribution in y and z. That is to
+  say, the scoring region along the x axis is taken to be [-infty,+infty].
+  Analogous procedures are applied along the y and z axis according to the
+  values of NYBIN and NZBIN, respectively.
+
+  For instance, a planar detector with infinite lateral dimensions (i.e. a
+  slab) and perpendicular to the z axis can be defined by setting NXBIN=
+  NYBIN=0, NZBIN=1. In this case, the units of the reported result are
+  cm^2*eV/g because the dose is integrated over x and y.
+
+* In order to obtain its mass density, it is assumed that each bin (either
+  in 1D, 2D or 3D) contains a single material, i.e. it is homogeneous. The
+  mass density of each bin is evaluated at its center.
+
+* This tally should not be used to compute absorbed dose inside voxelized
+  regions. This is because, as described previously, this tally may report
+  erroneous results if bins are not homogeneous. Inhomogeneities may arise
+  because some bins may overlap with more than one voxel, if their sizes do
+  not match, or with voxels and quadric bodies, if both are used.
+
+* If NXBIN=0 the values XMIN,XMAX are irrelevant, except for the fact that
+  the middle point x=(XMIN+XMAX)/2 is used to evaluate the mass density of
+  the entire region x=[-infty,+infty].
+
+* If 'PRINT COORDINATES' is set to 1, the values of x,y,z are printed in
+  the report. Otherwise, they are not. Notice that, in order to interpret
+  the various columns in the output file, the gnuplot scripts for this
+  tally distributed with penEasy assume that this option has been set to 1.
+
+* The RELATIVE UNCERTAINTY REQUESTED (specified as a percentage) is used as
+  a criterion to decide when to stop the simulation (see Instructions in
+  penEasy.in).
+
+
+>>> END OF FILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+

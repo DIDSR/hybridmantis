@@ -1,0 +1,23 @@
+TALLY ENERGY DEPOSITION PULSE HEIGHT SPECTRUM
+
+* The total energy deposited in the DETECTION MATERIAL per simulated
+  history is reported.
+
+* Also, the energy deposited by each history in the specified DETECTION
+  MATERIAL is classified into energy bins (pulse height spectrum). More
+  precisely, the quantity reported is the number of events per simulated
+  history in each bin, divided by the bin width. This coincides with the
+  normalized probability distribution of the deposited energy.
+
+* Energy bins are determined by the EMIN, EMAX (both in eV) and the No. OF
+  E BINS indicated in the input file. To facilitate the preparation of
+  graphs with steps two energies are printed in each row, namely, the low
+  end and the middle point of each bin.
+
+* The RELATIVE UNCERTAINTY REQUESTED (specified as a percentage) is used as
+  a criterion to decide when to stop the simulation (see Instructions in
+  penEasy.in).
+
+
+>>> END OF FILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+

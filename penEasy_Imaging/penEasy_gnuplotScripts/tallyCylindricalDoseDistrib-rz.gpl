@@ -1,0 +1,1595 @@
+# gnuplot script file for penEasy
+# Last update:
+#   2008-06-01 by JS
+
+pause -1 "Intended for cylindrical distributions (radius & z vs dose)."
+
+# Factor from eV to keV:
+f = 1.0e-3
+
+################
+# 2D Map plots #
+################
+
+set size ratio -1
+# Determine voxel color from corner left-bottom:
+set pm3d map corners2color c1 implicit
+# In case you want a gray scale plot:
+# set palette gray negative
+
+set title "Cylindrical Dose Distribution (keV/g per history)"
+set xlabel "radius (cm)"
+set ylabel "z (cm)"
+splot "tallyCylindricalDoseDistrib.dat" using 2:5:($7*f) notitle
+pause -1 "Press OK"
+
+#################
+# Surface plots #
+#################
+
+reset
+set style line 1 linetype -1 linewidth 1 pointtype 7 pointsize 0.5
+set pm3d hidden3d 1 implicit
+set colorbox horiz user origin 0.6,0.05 size 0.3,0.04
+unset surface
+set contour
+
+set title "Cylindrical Dose Distribution (keV/g per history)"
+set xlabel "radius (cm)"
+set ylabel "z (cm)"
+set zlabel "dose"
+splot "tallyCylindricalDoseDistrib.dat" using 2:5:($7*f) notitle with lines
+pause -1 "Press OK"
+
+##############
+# Line plots #
+##############
+
+reset
+# Pause interval (-1 stops execution):
+frameRate = -1
+
+set style line 1 linetype -1 linewidth 1 pointtype 7 pointsize 0.5
+
+set title "Cylindrical Dose Distribution"
+set xlabel "radius (cm)"
+set ylabel "dose (keV/g per history)"
+
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==001?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==001?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 001. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==002?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==002?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 002. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==003?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==003?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 003. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==004?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==004?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 004. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==005?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==005?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 005. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==006?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==006?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 006. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==007?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==007?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 007. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==008?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==008?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 008. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==009?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==009?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 009. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==010?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==010?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 010. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==011?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==011?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 011. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==012?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==012?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 012. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==013?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==013?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 013. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==014?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==014?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 014. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==015?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==015?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 015. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==016?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==016?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 016. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==017?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==017?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 017. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==018?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==018?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 018. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==019?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==019?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 019. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==020?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==020?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 020. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==021?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==021?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 021. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==022?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==022?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 022. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==023?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==023?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 023. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==024?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==024?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 024. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==025?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==025?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 025. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==026?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==026?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 026. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==027?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==027?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 027. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==028?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==028?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 028. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==029?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==029?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 029. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==030?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==030?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 030. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==031?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==031?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 031. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==032?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==032?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 032. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==033?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==033?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 033. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==034?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==034?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 034. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==035?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==035?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 035. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==036?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==036?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 036. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==037?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==037?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 037. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==038?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==038?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 038. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==039?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==039?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 039. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==040?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==040?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 040. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==041?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==041?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 041. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==042?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==042?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 042. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==043?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==043?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 043. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==044?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==044?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 044. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==045?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==045?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 045. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==046?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==046?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 046. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==047?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==047?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 047. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==048?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==048?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 048. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==049?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==049?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 049. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==050?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==050?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 050. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==051?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==051?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 051. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==052?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==052?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 052. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==053?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==053?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 053. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==054?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==054?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 054. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==055?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==055?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 055. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==056?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==056?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 056. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==057?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==057?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 057. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==058?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==058?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 058. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==059?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==059?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 059. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==060?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==060?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 060. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==061?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==061?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 061. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==062?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==062?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 062. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==063?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==063?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 063. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==064?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==064?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 064. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==065?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==065?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 065. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==066?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==066?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 066. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==067?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==067?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 067. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==068?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==068?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 068. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==069?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==069?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 069. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==070?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==070?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 070. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==071?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==071?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 071. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==072?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==072?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 072. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==073?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==073?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 073. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==074?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==074?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 074. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==075?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==075?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 075. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==076?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==076?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 076. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==077?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==077?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 077. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==078?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==078?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 078. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==079?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==079?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 079. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==080?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==080?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 080. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==081?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==081?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 081. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==082?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==082?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 082. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==083?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==083?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 083. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==084?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==084?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 084. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==085?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==085?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 085. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==086?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==086?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 086. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==087?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==087?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 087. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==088?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==088?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 088. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==089?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==089?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 089. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==090?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==090?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 090. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==091?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==091?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 091. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==092?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==092?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 092. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==093?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==093?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 093. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==094?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==094?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 094. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==095?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==095?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 095. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==096?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==096?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 096. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==097?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==097?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 097. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==098?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==098?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 098. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==099?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==099?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 099. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==100?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==100?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 100. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==101?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==101?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 101. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==102?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==102?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 102. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==103?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==103?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 103. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==104?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==104?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 104. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==105?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==105?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 105. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==106?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==106?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 106. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==107?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==107?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 107. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==108?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==108?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 108. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==109?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==109?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 109. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==110?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==110?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 110. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==111?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==111?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 111. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==112?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==112?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 112. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==113?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==113?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 113. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==114?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==114?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 114. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==115?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==115?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 115. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==116?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==116?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 116. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==117?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==117?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 117. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==118?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==118?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 118. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==119?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==119?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 119. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==120?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==120?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 120. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==121?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==121?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 121. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==122?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==122?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 122. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==123?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==123?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 123. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==124?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==124?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 124. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==125?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==125?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 125. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==126?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==126?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 126. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==127?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==127?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 127. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==128?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==128?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 128. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==129?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==129?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 129. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==130?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==130?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 130. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==131?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==131?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 131. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==132?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==132?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 132. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==133?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==133?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 133. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==134?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==134?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 134. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==135?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==135?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 135. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==136?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==136?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 136. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==137?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==137?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 137. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==138?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==138?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 138. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==139?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==139?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 139. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==140?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==140?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 140. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==141?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==141?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 141. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==142?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==142?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 142. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==143?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==143?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 143. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==144?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==144?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 144. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==145?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==145?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 145. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==146?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==146?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 146. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==147?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==147?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 147. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==148?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==148?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 148. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==149?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==149?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 149. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==150?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==150?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 150. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==151?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==151?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 151. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==152?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==152?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 152. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==153?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==153?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 153. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==154?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==154?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 154. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==155?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==155?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 155. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==156?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==156?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 156. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==157?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==157?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 157. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==158?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==158?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 158. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==159?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==159?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 159. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==160?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==160?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 160. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==161?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==161?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 161. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==162?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==162?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 162. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==163?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==163?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 163. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==164?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==164?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 164. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==165?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==165?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 165. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==166?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==166?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 166. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==167?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==167?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 167. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==168?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==168?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 168. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==169?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==169?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 169. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==170?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==170?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 170. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==171?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==171?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 171. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==172?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==172?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 172. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==173?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==173?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 173. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==174?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==174?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 174. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==175?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==175?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 175. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==176?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==176?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 176. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==177?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==177?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 177. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==178?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==178?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 178. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==179?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==179?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 179. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==180?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==180?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 180. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==181?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==181?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 181. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==182?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==182?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 182. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==183?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==183?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 183. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==184?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==184?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 184. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==185?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==185?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 185. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==186?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==186?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 186. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==187?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==187?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 187. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==188?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==188?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 188. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==189?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==189?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 189. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==190?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==190?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 190. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==191?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==191?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 191. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==192?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==192?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 192. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==193?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==193?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 193. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==194?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==194?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 194. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==195?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==195?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 195. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==196?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==196?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 196. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==197?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==197?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 197. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==198?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==198?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 198. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==199?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==199?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 199. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==200?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==200?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 200. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==201?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==201?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 201. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==202?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==202?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 202. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==203?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==203?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 203. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==204?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==204?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 204. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==205?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==205?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 205. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==206?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==206?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 206. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==207?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==207?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 207. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==208?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==208?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 208. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==209?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==209?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 209. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==210?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==210?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 210. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==211?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==211?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 211. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==212?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==212?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 212. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==213?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==213?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 213. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==214?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==214?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 214. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==215?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==215?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 215. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==216?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==216?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 216. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==217?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==217?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 217. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==218?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==218?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 218. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==219?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==219?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 219. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==220?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==220?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 220. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==221?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==221?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 221. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==222?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==222?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 222. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==223?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==223?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 223. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==224?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==224?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 224. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==225?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==225?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 225. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==226?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==226?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 226. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==227?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==227?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 227. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==228?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==228?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 228. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==229?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==229?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 229. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==230?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==230?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 230. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==231?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==231?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 231. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==232?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==232?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 232. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==233?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==233?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 233. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==234?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==234?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 234. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==235?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==235?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 235. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==236?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==236?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 236. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==237?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==237?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 237. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==238?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==238?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 238. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==239?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==239?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 239. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==240?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==240?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 240. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==241?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==241?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 241. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==242?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==242?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 242. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==243?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==243?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 243. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==244?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==244?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 244. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==245?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==245?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 245. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==246?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==246?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 246. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==247?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==247?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 247. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==248?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==248?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 248. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==249?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==249?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 249. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==250?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==250?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 250. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==251?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==251?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 251. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==252?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==252?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 252. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==253?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==253?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 253. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==254?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==254?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 254. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==255?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==255?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 255. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==256?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==256?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 256. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==257?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==257?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 257. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==258?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==258?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 258. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==259?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==259?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 259. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==260?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==260?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 260. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==261?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==261?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 261. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==262?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==262?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 262. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==263?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==263?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 263. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==264?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==264?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 264. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==265?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==265?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 265. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==266?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==266?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 266. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==267?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==267?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 267. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==268?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==268?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 268. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==269?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==269?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 269. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==270?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==270?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 270. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==271?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==271?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 271. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==272?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==272?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 272. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==273?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==273?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 273. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==274?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==274?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 274. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==275?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==275?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 275. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==276?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==276?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 276. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==277?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==277?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 277. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==278?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==278?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 278. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==279?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==279?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 279. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==280?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==280?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 280. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==281?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==281?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 281. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==282?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==282?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 282. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==283?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==283?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 283. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==284?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==284?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 284. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==285?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==285?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 285. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==286?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==286?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 286. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==287?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==287?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 287. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==288?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==288?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 288. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==289?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==289?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 289. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==290?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==290?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 290. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==291?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==291?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 291. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==292?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==292?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 292. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==293?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==293?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 293. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==294?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==294?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 294. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==295?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==295?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 295. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==296?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==296?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 296. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==297?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==297?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 297. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==298?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==298?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 298. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==299?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==299?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 299. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==300?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==300?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 300. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==301?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==301?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 301. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==302?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==302?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 302. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==303?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==303?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 303. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==304?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==304?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 304. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==305?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==305?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 305. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==306?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==306?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 306. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==307?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==307?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 307. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==308?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==308?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 308. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==309?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==309?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 309. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==310?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==310?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 310. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==311?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==311?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 311. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==312?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==312?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 312. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==313?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==313?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 313. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==314?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==314?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 314. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==315?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==315?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 315. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==316?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==316?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 316. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==317?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==317?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 317. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==318?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==318?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 318. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==319?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==319?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 319. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==320?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==320?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 320. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==321?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==321?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 321. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==322?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==322?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 322. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==323?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==323?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 323. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==324?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==324?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 324. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==325?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==325?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 325. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==326?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==326?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 326. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==327?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==327?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 327. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==328?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==328?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 328. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==329?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==329?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 329. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==330?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==330?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 330. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==331?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==331?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 331. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==332?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==332?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 332. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==333?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==333?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 333. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==334?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==334?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 334. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==335?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==335?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 335. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==336?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==336?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 336. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==337?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==337?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 337. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==338?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==338?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 338. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==339?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==339?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 339. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==340?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==340?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 340. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==341?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==341?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 341. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==342?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==342?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 342. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==343?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==343?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 343. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==344?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==344?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 344. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==345?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==345?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 345. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==346?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==346?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 346. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==347?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==347?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 347. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==348?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==348?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 348. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==349?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==349?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 349. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==350?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==350?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 350. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==351?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==351?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 351. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==352?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==352?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 352. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==353?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==353?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 353. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==354?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==354?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 354. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==355?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==355?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 355. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==356?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==356?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 356. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==357?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==357?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 357. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==358?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==358?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 358. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==359?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==359?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 359. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==360?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==360?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 360. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==361?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==361?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 361. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==362?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==362?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 362. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==363?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==363?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 363. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==364?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==364?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 364. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==365?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==365?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 365. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==366?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==366?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 366. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==367?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==367?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 367. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==368?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==368?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 368. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==369?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==369?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 369. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==370?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==370?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 370. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==371?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==371?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 371. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==372?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==372?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 372. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==373?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==373?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 373. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==374?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==374?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 374. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==375?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==375?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 375. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==376?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==376?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 376. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==377?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==377?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 377. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==378?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==378?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 378. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==379?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==379?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 379. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==380?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==380?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 380. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==381?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==381?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 381. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==382?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==382?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 382. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==383?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==383?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 383. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==384?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==384?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 384. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==385?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==385?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 385. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==386?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==386?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 386. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==387?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==387?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 387. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==388?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==388?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 388. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==389?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==389?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 389. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==390?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==390?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 390. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==391?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==391?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 391. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==392?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==392?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 392. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==393?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==393?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 393. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==394?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==394?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 394. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==395?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==395?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 395. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==396?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==396?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 396. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==397?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==397?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 397. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==398?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==398?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 398. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==399?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==399?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 399. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==400?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==400?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 400. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==401?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==401?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 401. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==402?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==402?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 402. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==403?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==403?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 403. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==404?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==404?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 404. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==405?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==405?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 405. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==406?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==406?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 406. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==407?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==407?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 407. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==408?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==408?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 408. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==409?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==409?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 409. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==410?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==410?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 410. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==411?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==411?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 411. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==412?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==412?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 412. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==413?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==413?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 413. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==414?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==414?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 414. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==415?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==415?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 415. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==416?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==416?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 416. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==417?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==417?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 417. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==418?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==418?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 418. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==419?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==419?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 419. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==420?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==420?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 420. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==421?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==421?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 421. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==422?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==422?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 422. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==423?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==423?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 423. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==424?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==424?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 424. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==425?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==425?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 425. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==426?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==426?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 426. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==427?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==427?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 427. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==428?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==428?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 428. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==429?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==429?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 429. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==430?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==430?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 430. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==431?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==431?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 431. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==432?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==432?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 432. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==433?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==433?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 433. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==434?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==434?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 434. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==435?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==435?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 435. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==436?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==436?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 436. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==437?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==437?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 437. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==438?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==438?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 438. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==439?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==439?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 439. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==440?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==440?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 440. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==441?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==441?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 441. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==442?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==442?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 442. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==443?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==443?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 443. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==444?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==444?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 444. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==445?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==445?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 445. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==446?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==446?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 446. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==447?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==447?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 447. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==448?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==448?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 448. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==449?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==449?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 449. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==450?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==450?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 450. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==451?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==451?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 451. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==452?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==452?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 452. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==453?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==453?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 453. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==454?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==454?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 454. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==455?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==455?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 455. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==456?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==456?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 456. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==457?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==457?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 457. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==458?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==458?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 458. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==459?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==459?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 459. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==460?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==460?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 460. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==461?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==461?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 461. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==462?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==462?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 462. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==463?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==463?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 463. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==464?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==464?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 464. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==465?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==465?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 465. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==466?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==466?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 466. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==467?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==467?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 467. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==468?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==468?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 468. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==469?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==469?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 469. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==470?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==470?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 470. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==471?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==471?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 471. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==472?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==472?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 472. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==473?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==473?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 473. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==474?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==474?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 474. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==475?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==475?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 475. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==476?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==476?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 476. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==477?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==477?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 477. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==478?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==478?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 478. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==479?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==479?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 479. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==480?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==480?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 480. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==481?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==481?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 481. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==482?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==482?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 482. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==483?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==483?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 483. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==484?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==484?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 484. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==485?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==485?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 485. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==486?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==486?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 486. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==487?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==487?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 487. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==488?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==488?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 488. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==489?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==489?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 489. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==490?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==490?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 490. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==491?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==491?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 491. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==492?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==492?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 492. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==493?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==493?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 493. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==494?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==494?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 494. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==495?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==495?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 495. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==496?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==496?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 496. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==497?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==497?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 497. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==498?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==498?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 498. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==499?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==499?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 499. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==500?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==500?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 500. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==501?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==501?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 501. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==502?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==502?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 502. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==503?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==503?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 503. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==504?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==504?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 504. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==505?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==505?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 505. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==506?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==506?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 506. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==507?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==507?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 507. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==508?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==508?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 508. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==509?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==509?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 509. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==510?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==510?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 510. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==511?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==511?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 511. Press OK"
+plot [0:] [0:] "tallyCylindricalDoseDistrib.dat" using 3:($4==512?($7*f):-1):($8*f) notitle with yerrorbars linestyle 1, \
+               "tallyCylindricalDoseDistrib.dat" using 2:($4==512?($7*f):-1) notitle with steps linestyle 1
+pause frameRate "z-slice index = 512. Press OK"
+
+# EOF

@@ -1,0 +1,15 @@
+TALLY PARTICLE TRACK STRUCTURE
+
+* This tally allows the representation of particle tracks in a 3D graph. To
+  this end, particle coordinates after each interaction (together with some
+  other information) are written to an external file. This file is used by
+  the corresponding gnuplot script to display the tracks.
+
+* To prevent creating enormous files with myriads of particle tracks that
+  would be virtually impossible to discern when displayed on the computer
+  screen, only the first K simulated histories are reported. The number K
+  is set by the user in the input file.
+
+
+>>> END OF FILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+

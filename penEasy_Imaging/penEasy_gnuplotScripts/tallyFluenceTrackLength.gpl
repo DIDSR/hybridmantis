@@ -1,0 +1,51 @@
+# gnuplot script file for penEasy
+# Last update:
+#   2008-04-19 by JS
+
+# Factor from keV to eV:
+f = 1.0e3
+
+set style line 1 linetype -1 linewidth 1 pointtype 7 pointsize 0.5
+set logscale x
+set mxtics 10
+
+set title "Positron Fluence Spectrum"
+set xlabel "energy[E] (keV)"
+set ylabel "p(E) (cm/keV per history)"
+plot "tallyFluenceTrackLength-positron.dat" using ($2/f):($3*f):($4*f) notitle with yerrorbars linestyle 1, \
+     "tallyFluenceTrackLength-positron.dat" using ($1/f):($3*f) notitle with steps linestyle 1
+pause -1 "Press OK"
+
+set title "Photon Fluence Spectrum"
+set xlabel "energy[E] (keV)"
+set ylabel "p(E) (cm/keV per history)"
+plot "tallyFluenceTrackLength-photon.dat" using ($2/f):($3*f):($4*f) notitle with yerrorbars linestyle 1, \
+     "tallyFluenceTrackLength-photon.dat" using ($1/f):($3*f) notitle with steps linestyle 1
+pause -1 "Press OK"
+
+set title "Electron Fluence Spectrum"
+set xlabel "energy[E] (keV)"
+set ylabel "p(E) (cm/keV per history)"
+plot "tallyFluenceTrackLength-electron.dat" using ($2/f):($3*f):($4*f) notitle with yerrorbars linestyle 1, \
+     "tallyFluenceTrackLength-electron.dat" using ($1/f):($3*f) notitle with steps linestyle 1
+pause -1 "Press OK"
+
+set style line 1 linetype -1 linewidth 1 pointtype 7 pointsize 1
+unset logscale x
+
+set title "Total Energy Deposition (using track length estimator)"
+unset xlabel
+set xrange [-1:1]
+set xtics ("" 0)
+set ylabel "energy (keV per history)"
+plot "tallyFluenceTrackLength-totalE.dat" using 0:($1/f):($2/f) notitle with yerrorlines linestyle 1
+pause -1 "Press OK"
+
+set title "Contribution to energy deposition from residual events"
+unset xlabel
+set xrange [-1:1]
+set xtics ("" 0)
+set ylabel "energy (keV per history)"
+plot "tallyFluenceTrackLength-totalE.dat" using 0:($3/f):($4/f) notitle with yerrorlines linestyle 1
+pause -1 "Press OK"
+

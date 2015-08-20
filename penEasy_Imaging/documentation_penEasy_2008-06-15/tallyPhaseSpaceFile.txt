@@ -1,0 +1,46 @@
+TALLY PHASE SPACE FILE
+
+* The state of all particles reaching the specified DETECTION MATERIAL is
+  written in the output file. More precisely, the variables written are, in
+  the quoted order, kpar, e, x, y, z, u, v, w, wght, dn, ilb(1), ilb(2),
+  ilb(3), ilb(4) and ilb(5) (i.e. type of particle, energy, position,
+  direction, statistical weight, and ILB labels).
+
+* The meaning of each variable is explained in the PENELOPE manual, except
+  DN, which is the increment in the number of top primary histories since
+  the previous record in the PSF was written. Thus DN=0 indicates that the
+  current particle belongs to the same history as the previous one and DN=
+  3, for instance, implies that it was necessary to simulate 3 additional
+  primary histories until a particle reached again the PSF scoring region.
+
+* Notice that the PSF is written in text mode (i.e. ASCII) and that each
+  variable is separated from the next by one or more spaces. Given that a
+  non-negligible fraction of the time needed to simulate each history is
+  spent accessing the information in the PSF record, this format is
+  obviously not optimized for speed. It was chosen this way because it is
+  human-readable and directly amenable to graphical representation, e.g.
+  with gnuplot. However, for production runs, a binary format
+  ("unformatted", in the Fortran jargon) is more convenient. See the file
+  sourcePhaseSpaceFile.txt for a discussion on how to implement the latter.
+
+* In order to terminate particles that reach the detector, the three
+  absortion energies (photons, e- and e+) for the detection material must
+  be set to infinity (i.e. a very large value). If this is not done, some
+  particles may re-enter the material in question and be counted more than
+  once. This latter situation may be a desirable feature in some
+  applications.
+
+* DETECTION MATERIAL should not be null (i.e. vacuum). This is so because
+  STEP, the geometry subroutine from PENGEOM (in the PENELOPE package),
+  skips vacuum regions with the intention to reach out in search of some
+  non-vacuum material further downstream. If it does not encounter any
+  matter, the spatial coordinates are returned with very large values,
+  rendering the scoring of the particle's position pointless. Instead, it
+  is recommended that you define a fake material, a pseudo-vacuum, with a
+  very small mass density. This will prevent STEP from pushing particles to
+  infinity and will allow the tally routine to stop them when it is
+  detected that they enter the pseudo-vacuum region.
+
+* The PSF name is defined in the corresponding field.
+
+>>>> END OF FILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

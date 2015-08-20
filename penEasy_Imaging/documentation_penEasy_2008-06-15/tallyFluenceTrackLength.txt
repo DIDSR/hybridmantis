@@ -1,0 +1,39 @@
+TALLY FLUENCE TRACK LENGTH
+
+* The fluence spectrum integrated over the volume of the declared DETECTION
+  MATERIAL is calculated. The fluence is reported per unit simulated
+  history. Its units are cm^3*particles/(eV*cm^2) = particles*cm/eV. To
+  obtain it, the track length estimator is used, that is, the distance
+  travelled by each particle type in the detector is accumulated according
+  to the energy of the considered particle.
+
+* The spectrum is obtained by dividing the interval [EMIN,EMAX] (in eV) in
+  the specified No. OF E BINS. A logarithmic scale is used. To facilitate
+  the preparation of graphs with steps two energies are printed in each
+  row, namely, the low end and the middle point of each bin.
+
+* The energy deposited in the DETECTION MATERIAL per simulated history is
+  also reported. For electrons and positrons, this quantity is NOT
+  calculated from the values returned by KNOCK (which would correspond to
+  the so-called collision estimator) but from the product
+  trackLength*restrictedStoppingPower. Events that deposit energy through
+  mechanisms other than the one just described are also taken into account
+  and their contribution to the total energy deposition is also reported
+  separately for the sake of completeness. These mechanisms include, e.g.,
+  the so called track-ends, Compton collisions in which the energy
+  transferred to the secondary electron is less that its absorption energy
+  (and consequently this electron is assumed to be locally deposited), etc.
+
+* The RELATIVE UNCERTAINTY REQUESTED (specified as a percentage) is used as
+  a criterion to decide when to stop the simulation (see Instructions in
+  penEasy.in).
+
+* IMPORTANT: To operate properly, this tally requires a slight modification
+  of the PENELOPE subroutine KNOCK. The modification implies no change in
+  the physics, only the access to more information than the one provided by
+  the standard KNOCK. Thus, a subroutine KNOCKX is provided elsewhere in
+  the penEasy package.
+
+
+>>> END OF FILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+

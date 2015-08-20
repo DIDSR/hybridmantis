@@ -1,0 +1,45 @@
+# gnuplot script file for penEasy
+# Last update:
+#   2008-04-19 by JS
+
+pause -1 "Intended for 2D distributions in Cartesian coordinates."
+
+# Factor from eV to keV:
+f = 1.0e-3
+
+################
+# 2D Map plots #
+################
+
+set size ratio -1
+# Determine voxel color from corner left-bottom:
+set pm3d map corners2color c1 implicit
+# In case you want a gray scale plot:
+# set palette gray negative
+
+set title "2D Dose Distribution (keV.cm/g per history)"
+set xlabel "1st coord (cm)"
+set ylabel "2nd coord (cm)"
+splot "tallySpatialDoseDistrib.dat" using 2:5:($7*f) notitle
+pause -1 "Press OK"
+
+#################
+# Surface plots #
+#################
+
+reset
+set style line 1 linetype -1 linewidth 1 pointtype 7 pointsize 0.5
+set pm3d hidden3d 1 implicit
+set colorbox horiz user origin 0.6,0.05 size 0.3,0.04
+unset surface
+set contour
+
+set title "2D Dose Distribution (keV.cm/g per history)"
+set xlabel "1st coord (cm)"
+set ylabel "2nd coord (cm)"
+set zlabel "dose"
+splot "tallySpatialDoseDistrib.dat" using 2:5:($7*f) notitle with lines
+pause -1 "Press OK"
+
+# EOF
+

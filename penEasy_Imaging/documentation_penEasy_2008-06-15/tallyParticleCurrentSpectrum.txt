@@ -1,0 +1,24 @@
+TALLY PARTICLE CURRENT SPECTRUM
+
+* This tally reports, classified according to the particle type, the energy
+  spectrum of the particles that enter the specified DETECTION MATERIAL per
+  unit simulated history. The total number of each type of particle per
+  simulated history is also reported.
+
+* Each particle is counted as many times as it enters the DETECTION
+  MATERIAL. If this feature is not wanted, the absorption energy of the
+  material in question must be set to infinity. A count is also added to
+  the particle current counter if the particle is generated inside the
+  detection material by the source.
+
+* The energy bins are determined by the EMIN, EMAX (both in eV) and the
+  No. OF E BINS indicated in the input file. To facilitate the
+  preparation of graphs with steps two energies are printed in each row,
+  namely, the low end and the middle point of each bin.
+
+* The RELATIVE UNCERTAINTY REQUESTED (specified as a percentage) is used as
+  a criterion to decide when to stop the simulation (see Instructions in
+  penEasy.in).
+
+>>> END OF FILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
